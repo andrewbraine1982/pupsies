@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pupsies - Happy paws, every day. Quality products for dogs and happier homes.">
+  <title>Pupsies | Happy Paws, Every Day</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #073f86;
+      --blue: #08a6e3;
+      --sky: #dff5ff;
+      --pale: #f5fbff;
+      --white: #ffffff;
+      --text: #123b70;
+      --muted: #5d7390;
+      --radius: 26px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: white;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* TOP BAR */
+
+    .topbar {
+      background: linear-gradient(90deg, #09a9e4, #078ed0);
+      color: white;
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      min-height: 82px;
+      padding: 15px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 40px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: var(--navy);
+    }
+
+    .logo span {
+      color: var(--blue);
+    }
+
+    .navlinks {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .navlinks a:hover {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      background: var(--navy);
+      color: white !important;
+      padding: 11px 19px;
+      border-radius: 30px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 8% 20%, rgba(9,166,227,.10) 0 22px, transparent 23px),
+        radial-gradient(circle at 91% 28%, rgba(9,166,227,.10) 0 18px, transparent 19px),
+        linear-gradient(135deg, #ffffff 10%, #e6f7ff 100%);
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      min-height: 560px;
+      margin: auto;
+      padding: 75px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 45px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      color: var(--navy);
+      font-size: clamp(52px, 6vw, 82px);
+      line-height: .98;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .hero-copy p {
+      max-width: 510px;
+      font-size: 20px;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 13px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 15px 25px;
+      border-radius: 40px;
+      background: var(--blue);
+      color: white;
+      font-weight: 800;
+      transition: .2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: white;
+      color: var(--navy);
+      border: 2px solid #cceafa;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 390px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pad-stack {
+      width: 390px;
+      height: 270px;
+      background: linear-gradient(#87ddf6, #28b7e8);
+      border-radius: 15px;
+      transform: rotate(-4deg);
+      box-shadow:
+        0 12px 0 #a2e5f7,
+        0 24px 0 #6fd4f1,
+        0 36px 0 #35bde8,
+        0 35px 50px rgba(8,91,145,.18);
+    }
+
+    .pad-stack::after {
+      content: "🐶";
+      position: absolute;
+      font-size: 170px;
+      left: 50%;
+      bottom: -80px;
+      transform: translateX(-50%) rotate(4deg);
+      filter: drop-shadow(0 12px 12px rgba(0,0,0,.12));
+    }
+
+    .paw {
+      position: absolute;
+      font-size: 50px;
+      opacity: .12;
+      color: var(--blue);
+    }
+
+    .paw.one { left: 4%; top: 14%; transform: rotate(-20deg); }
+    .paw.two { right: 5%; bottom: 10%; transform: rotate(20deg); }
+
+    /* BENEFITS */
+
+    .benefits-wrap {
+      max-width: 1150px;
+      margin: -35px auto 0;
+      position: relative;
+      z-index: 3;
+      padding: 0 20px;
+    }
+
+    .benefits {
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 12px 45px rgba(21,101,151,.12);
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      overflow: hidden;
+    }
+
+    .benefit {
+      padding: 28px 20px;
+      text-align: center;
+      border-right: 1px solid #e8f3f8;
+    }
+
+    .benefit:last-child {
+      border-right: none;
+    }
+
+    .benefit-icon {
+      font-size: 31px;
+      margin-bottom: 8px;
+    }
+
+    .benefit strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .benefit small {
+      color: var(--muted);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 90px 24px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--navy);
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin: 0 auto 45px;
+      max-width: 600px;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      background: var(--pale);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      position: relative;
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 7px 25px rgba(30,100,145,.07);
+      transition: .2s;
+      overflow: hidden;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      height: 170px;
+      border-radius: 20px;
+      background: linear-gradient(145deg,#effaff,#d7f2fd);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 82px;
+      margin-bottom: 20px;
+    }
+
+    .product-card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      min-height: 48px;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .coming {
+      display: inline-block;
+      background: #e7eef5;
+      color: #708096;
+      padding: 10px 17px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+    }
+
+    /* TRAINING FEATURE */
+
+    .feature {
+      background: white;
+    }
+
+    .feature-box {
+      border-radius: 35px;
+      background: linear-gradient(120deg,#dff6ff,#f8fdff);
+      padding: 55px;
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .feature-visual {
+      min-height: 340px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 150px;
+      box-shadow: 0 12px 35px rgba(24,112,161,.10);
+    }
+
+    .feature-copy h2 {
+      color: var(--navy);
+      font-size: 42px;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .feature-copy > p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .checks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .check {
+      background: rgba(255,255,255,.8);
+      border-radius: 15px;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* BRAND */
+
+    .brand {
+      text-align: center;
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand h2 {
+      font-size: 44px;
+      margin-bottom: 15px;
+    }
+
+    .brand p {
+      max-width: 650px;
+      margin: auto;
+      color: #cceaff;
+      font-size: 18px;
+    }
+
+    .brand-points {
+      margin-top: 45px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .brand-point {
+      padding: 25px;
+      background: rgba(255,255,255,.08);
+      border-radius: 20px;
+    }
+
+    .brand-point span {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* NEWSLETTER */
+
+    .newsletter {
+      background: linear-gradient(90deg,#08a6e3,#087fc4);
+      color: white;
+      padding: 55px 24px;
+    }
+
+    .newsletter-inner {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .newsletter h2 {
+      font-size: 32px;
+    }
+
+    .newsletter p {
+      color: #e4f7ff;
+    }
+
+    .signup {
+      display: flex;
+      background: white;
+      padding: 5px;
+      border-radius: 40px;
+      min-width: 390px;
+    }
+
+    .signup input {
+      border: 0;
+      outline: 0;
+      flex: 1;
+      padding: 13px 17px;
+      border-radius: 30px;
+      font-size: 14px;
+    }
+
+    .signup button {
+      border: 0;
+      background: var(--navy);
+      color: white;
+      border-radius: 30px;
+      padding: 12px 22px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #06346f;
+      color: #cfeaff;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media(max-width: 850px) {
+      .navlinks {
+        display: none;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      .hero-copy p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .hero-art {
+        min-height: 330px;
+      }
+
+      .pad-stack {
+        width: 280px;
+        height: 200px;
+      }
+
+      .pad-stack::after {
+        font-size: 130px;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-box {
+        grid-template-columns: 1fr;
+        padding: 30px;
+      }
+
+      .brand-points {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media(max-width: 520px) {
+      .logo {
+        font-size: 32px;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .benefits,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-copy h2 {
+        font-size: 34px;
+      }
+
+      .checks {
+        grid-template-columns: 1fr;
+      }
+
+      .signup {
+        min-width: 100%;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    ♥ Happy Paws, Every Day. &nbsp; • &nbsp; Welcome to Pupsies
+  </div>
+
+  <nav>
+    <a href="#" class="logo">Pup<span>s</span>ies</a>
+
+    <div class="navlinks">
+      <a href="#products">Shop</a>
+      <a href="#training">Training Pads</a>
+      <a href="#products">Coming Soon</a>
+      <a href="#about">About Us</a>
+      <a href="#training" class="nav-cta">Shop Training Pads</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <span class="paw one">🐾</span>
+    <span class="paw two">🐾</span>
+
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <div class="eyebrow">Made for dogs. Loved by humans.</div>
+
+        <h1>Happy Paws,<br>Every Day. ♥</h1>
+
+        <p>
+          Thoughtful dog essentials designed to make everyday life
+          cleaner, easier and a whole lot happier.
+        </p>
+
+        <div class="buttons">
+          <a href="#training" class="button">
+            Shop Training Pads →
+          </a>
+
+          <a href="#products" class="button secondary">
+            Explore Pupsies
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="pad-stack"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="benefits-wrap">
+    <div class="benefits">
+
+      <div class="benefit">
+        <div class="benefit-icon">💧</div>
+        <strong>Leak-Proof</strong>
+        <small>Helps keep floors clean & dry</small>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">✨</div>
+        <strong>Odour Control</strong>
+        <small>For fresher, happier homes</small>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">⚡</div>
+        <strong>Super Absorbent</strong>
+        <small>Locks in wetness quickly</small>
+      </div>
+
+      <div class="benefit">
+        <div class="benefit-icon">🐾</div>
+        <strong>Dog Friendly</strong>
+        <small>Made with paws in mind</small>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="products" id="products">
+    <div class="container">
+
+      <h2 class="section-title">🐾 The Pupsies Collection 🐾</h2>
+
+      <p class="section-subtitle">
+        Training pads are here. More tail-wagging essentials are on their way.
+      </p>
+
+      <div class="product-grid">
+
+        <article class="product-card">
+          <div class="product-image">🟦</div>
+          <h3>Training Pads</h3>
+          <p>Super absorbent, leak-proof protection for puppies and adult dogs.</p>
+          <a href="#training" class="button">Shop on Amazon →</a>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">🛏️</div>
+          <h3>Dog Beds</h3>
+          <p>Cosy spaces designed for serious snoozing.</p>
+          <span class="coming">Coming Soon</span>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">🦴</div>
+          <h3>Dog Essentials</h3>
+          <p>Everyday essentials for walks, play and adventures.</p>
+          <span class="coming">Coming Soon</span>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">🎾</div>
+          <h3>Accessories</h3>
+          <p>Fun, useful extras for happy dogs everywhere.</p>
+          <span class="coming">Coming Soon</span>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="feature" id="training">
+    <div class="container">
+
+      <div class="feature-box">
+
+        <div class="feature-visual">
+          🐶
+        </div>
+
+        <div class="feature-copy">
+
+          <div class="eyebrow">Pupsies Training Pads</div>
+
+          <h2>
+            Perfect for Puppies.<br>
+            Practical for Every Dog.
+          </h2>
+
+          <p>
+            Make toilet training simpler while protecting your floors.
+            Pupsies training pads are designed for puppies, adult dogs,
+            older dogs, travelling and everyday indoor use.
+          </p>
+
+          <div class="checks">
+            <div class="check">✓ Super Absorbent</div>
+            <div class="check">✓ Leak-Proof Backing</div>
+            <div class="check">✓ Indoor & Outdoor</div>
+            <div class="check">✓ Travel Friendly</div>
+          </div>
+
+          <!-- Replace # with your Amazon product URL -->
+          <a href="#" class="button">
+            Shop Training Pads on Amazon →
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brand" id="about">
+    <div class="container">
+
+      <h2>Why Pet Parents Love Pupsies ♥</h2>
+
+      <p>
+        We believe dog products should be practical, dependable and
+        designed with the happiness of both dogs and their humans in mind.
+      </p>
+
+      <div class="brand-points">
+
+        <div class="brand-point">
+          <span>🐾</span>
+          <h3>Made for Dogs</h3>
+          <p>Thoughtfully designed around everyday dog life.</p>
+        </div>
+
+        <div class="brand-point">
+          <span>💙</span>
+          <h3>Made with Care</h3>
+          <p>Useful products without unnecessary complication.</p>
+        </div>
+
+        <div class="brand-point">
+          <span>🏡</span>
+          <h3>Happier Homes</h3>
+          <p>Helping make life with dogs cleaner and easier.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="newsletter">
+    <div class="newsletter-inner">
+
+      <div>
+        <h2>Join the Pupsies Pack! 🐾</h2>
+        <p>New products, offers and plenty of tail wags.</p>
+      </div>
+
+      <div class="signup">
+        <input type="email" placeholder="Enter your email">
+        <button type="button">Join the Pack</button>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <strong>Pupsies</strong> — Happy Paws, Every Day. ♥
+    <br><br>
+    © 2026 Pupsies. All rights reserved.
+  </footer>
+
+</body>
+</html>
