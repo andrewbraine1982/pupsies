@@ -174,29 +174,16 @@
       justify-content: center;
       align-items: center;
     }
-
-    .pad-stack {
-      width: 390px;
-      height: 270px;
-      background: linear-gradient(#87ddf6, #28b7e8);
-      border-radius: 15px;
-      transform: rotate(-4deg);
-      box-shadow:
-        0 12px 0 #a2e5f7,
-        0 24px 0 #6fd4f1,
-        0 36px 0 #35bde8,
-        0 35px 50px rgba(8,91,145,.18);
-    }
-
-    .pad-stack::after {
-      content: "🐶";
-      position: absolute;
-      font-size: 170px;
-      left: 50%;
-      bottom: -80px;
-      transform: translateX(-50%) rotate(4deg);
-      filter: drop-shadow(0 12px 12px rgba(0,0,0,.12));
-    }
+.hero-product-image {
+  width: 100%;
+  max-width: 620px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 18px 24px rgba(7, 63, 134, 0.08));
+}
+   
 
     .paw {
       position: absolute;
